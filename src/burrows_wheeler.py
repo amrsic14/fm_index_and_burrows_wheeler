@@ -1,12 +1,18 @@
-from src.suffix_array import simple_suffix_array
+from src.suffix_array import sais_suffix_array
 
 
 MARKER = '$'
 
 
 def burrows_wheeler_transform(T: str, array = None) -> str:
+    """
+    BWT can use pre-calculated suffix array to reduce execution time and space consumption
+    :param T: string
+    :param array: pre-calculated suffix array
+    :return: BWT
+    """
     if array is None:
-        array = simple_suffix_array(T)
+        array = sais_suffix_array(T)
 
     bwt = []
     

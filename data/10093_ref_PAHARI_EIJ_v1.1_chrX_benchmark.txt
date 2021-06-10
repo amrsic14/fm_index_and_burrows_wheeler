@@ -1,0 +1,183 @@
+
+
+
+******************** 10093_ref_PAHARI_EIJ_v1.1_chrX ********************
+
+
+time: 222.536s
+
+====================================================
+sa_factor: 1    tally_factor: 1
+memory: 7596.901MB
+ATGATG    : 23.436ms 		 matches: 43200
+CTCTCTA   : 6.211ms 		 matches: 10237
+TCACTACTCTCA: 0.000ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 1    tally_factor: 8
+memory: 6587.132MB
+ATGATG    : 23.505ms 		 matches: 43200
+CTCTCTA   : 5.967ms 		 matches: 10237
+TCACTACTCTCA: 0.551ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 1    tally_factor: 32
+memory: 6467.860MB
+ATGATG    : 22.861ms 		 matches: 43200
+CTCTCTA   : 5.949ms 		 matches: 10237
+TCACTACTCTCA: 0.000ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 1    tally_factor: 128
+memory: 6438.839MB
+ATGATG    : 22.656ms 		 matches: 43200
+CTCTCTA   : 5.759ms 		 matches: 10237
+TCACTACTCTCA: 0.365ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 1    tally_factor: 512
+memory: 6431.778MB
+ATGATG    : 22.195ms 		 matches: 43200
+CTCTCTA   : 5.844ms 		 matches: 10237
+TCACTACTCTCA: 0.426ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 4    tally_factor: 1
+memory: 3756.901MB
+ATGATG    : 173.671ms 		 matches: 43200
+CTCTCTA   : 40.468ms 		 matches: 10237
+TCACTACTCTCA: 0.598ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 4    tally_factor: 8
+memory: 2747.132MB
+ATGATG    : 182.862ms 		 matches: 43200
+CTCTCTA   : 42.923ms 		 matches: 10237
+TCACTACTCTCA: 0.337ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 4    tally_factor: 32
+memory: 2627.860MB
+ATGATG    : 208.411ms 		 matches: 43200
+CTCTCTA   : 49.259ms 		 matches: 10237
+TCACTACTCTCA: 0.188ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 4    tally_factor: 128
+memory: 2598.839MB
+ATGATG    : 304.690ms 		 matches: 43200
+CTCTCTA   : 71.199ms 		 matches: 10237
+TCACTACTCTCA: 0.195ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 4    tally_factor: 512
+memory: 2591.778MB
+ATGATG    : 696.891ms 		 matches: 43200
+CTCTCTA   : 164.768ms 		 matches: 10237
+TCACTACTCTCA: 0.640ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 16    tally_factor: 1
+memory: 2796.901MB
+ATGATG    : 651.753ms 		 matches: 43200
+CTCTCTA   : 159.023ms 		 matches: 10237
+TCACTACTCTCA: 0.000ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 16    tally_factor: 8
+memory: 1787.132MB
+ATGATG    : 1059.260ms 		 matches: 43200
+CTCTCTA   : 230.994ms 		 matches: 10237
+TCACTACTCTCA: 0.475ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 16    tally_factor: 32
+memory: 1667.860MB
+ATGATG    : 1097.873ms 		 matches: 43200
+CTCTCTA   : 231.945ms 		 matches: 10237
+TCACTACTCTCA: 0.650ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 16    tally_factor: 128
+memory: 1638.839MB
+ATGATG    : 1438.439ms 		 matches: 43200
+CTCTCTA   : 314.821ms 		 matches: 10237
+TCACTACTCTCA: 0.267ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 16    tally_factor: 512
+memory: 1631.778MB
+ATGATG    : 3427.711ms 		 matches: 43200
+CTCTCTA   : 776.915ms 		 matches: 10237
+TCACTACTCTCA: 1.335ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 64    tally_factor: 1
+memory: 2556.901MB
+ATGATG    : 2826.691ms 		 matches: 43200
+CTCTCTA   : 670.866ms 		 matches: 10237
+TCACTACTCTCA: 0.245ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 64    tally_factor: 8
+memory: 1547.132MB
+ATGATG    : 3160.283ms 		 matches: 43200
+CTCTCTA   : 749.344ms 		 matches: 10237
+TCACTACTCTCA: 0.734ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 64    tally_factor: 32
+memory: 1427.860MB
+ATGATG    : 3604.235ms 		 matches: 43200
+CTCTCTA   : 867.607ms 		 matches: 10237
+TCACTACTCTCA: 0.881ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 64    tally_factor: 128
+memory: 1398.839MB
+ATGATG    : 5761.717ms 		 matches: 43200
+CTCTCTA   : 1364.363ms 		 matches: 10237
+TCACTACTCTCA: 1.196ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 64    tally_factor: 512
+memory: 1391.778MB
+ATGATG    : 13990.942ms 		 matches: 43200
+CTCTCTA   : 3335.995ms 		 matches: 10237
+TCACTACTCTCA: 3.146ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 256    tally_factor: 1
+memory: 2496.901MB
+ATGATG    : 11161.790ms 		 matches: 43200
+CTCTCTA   : 2635.960ms 		 matches: 10237
+TCACTACTCTCA: 2.662ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 256    tally_factor: 8
+memory: 1487.132MB
+ATGATG    : 12829.754ms 		 matches: 43200
+CTCTCTA   : 3035.221ms 		 matches: 10237
+TCACTACTCTCA: 2.664ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 256    tally_factor: 32
+memory: 1367.860MB
+ATGATG    : 15045.269ms 		 matches: 43200
+CTCTCTA   : 3529.500ms 		 matches: 10237
+TCACTACTCTCA: 3.478ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 256    tally_factor: 128
+memory: 1338.839MB
+ATGATG    : 23247.674ms 		 matches: 43200
+CTCTCTA   : 5551.022ms 		 matches: 10237
+TCACTACTCTCA: 4.906ms 		 matches: 8  
+====================================================
+====================================================
+sa_factor: 256    tally_factor: 512
+memory: 1331.778MB
+ATGATG    : 57224.092ms 		 matches: 43200
+CTCTCTA   : 13496.992ms 		 matches: 10237
+TCACTACTCTCA: 12.079ms 		 matches: 8  
+====================================================

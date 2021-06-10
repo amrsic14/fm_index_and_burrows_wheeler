@@ -2,6 +2,7 @@ from unittest import TestCase
 from src.suffix_array import generate_suffix_array, resolve_fm_index_offset
 from src.tally import fast_rank, generate_tally
 from src.burrows_wheeler import burrows_wheeler_transform, first_column
+from src.search import search
 
 
 class Test_TestStringSearching(TestCase):
@@ -97,3 +98,12 @@ class Test_TestStringSearching(TestCase):
                 suffix_array[row] = resolve_fm_index_offset(suffix_array_helper, row, L, F, tally_table)
             
             self.assertEqual(suffix_array, suffix_array_factor_1)
+
+    def test_search(self):
+        self.assertEqual(search('banana', 'na'), [2,4])
+        self.assertEqual(search('ffffff', 'f' , 1, 3), [0, 1, 2, 3, 4, 5])
+        self.assertEqual(search('six_sleek_swans_swam_swiftly_southwards', 'eek_' , 3, 2), [6])
+        self.assertEqual(search('find nothing', 'gi', 2, 2), [])
+        self.assertEqual(search('na', 'banana'), [])
+        self.assertEqual(search('whole_word', 'whole_word', 4, 4), [0])
+        self.assertEqual(search('last_char', 'r'), [8])

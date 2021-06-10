@@ -1,35 +1,31 @@
+import subprocess, os, time
 from src.tally import fast_rank
 
 
-def simple_suffix_array(T: str):
-    def compare(a: int, b: int):
-        compare, l = len(T), len(T)
-
-        while True:
-            compare = ord(T[a]) - ord(T[b])
-            a += 1
-            b += 1
-            if a >= l:
-                a -= l
-            if b >= l:
-                b -= l
-            if compare != 0:
-                break
-        return compare
-    
-    array = [i for i in range(len(T))]
-    import functools
-    array.sort(key=functools.cmp_to_key(compare))
-
+def sais_suffix_array(file: str):
+    """ 
+    Using sais algorithm to generate suffix array 
+    :param file: path to file
+    """
+    temp_out_file = 'sa_output.txt'
+    subprocess.call([f'{os.path.dirname(__file__)}\\sais\\sais.exe', file, temp_out_file])
+    with open(temp_out_file, 'r') as file:
+        data = file.read()
+    os.remove(temp_out_file)
+    array = [int(i) for i in data.split(' ')]
     return array
 
 
-def generate_suffix_array(T: str, sa_factor: int = 1, array = None):
-    if (sa_factor > len(T)):
-        raise AssertionError("Suffix array factor bigger than length of text")
-    
+def generate_suffix_array(file: str, sa_factor: int = 1, array = None):    
+    """
+    Generate suffix array with sa factor, function can use pre-calculated suffix array 
+    to reduce execution time and space consumption
+    :param file: path to file
+    :param sa_factor:
+    :param array: pre-calculated suffix array
+    """
     if array is None:
-        array = simple_suffix_array(T)
+        array = sais_suffix_array(file)
 
     suffix_array = {}
 
@@ -41,9 +37,6 @@ def generate_suffix_array(T: str, sa_factor: int = 1, array = None):
 
 
 def resolve_fm_index_offset(suffix_array, row, L, F, tally, tally_factor=1):
-    if (tally_factor > len(L)):
-        raise AssertionError("Tally factor bigger than length of BWT")
-    
     step_cnt = 0
     
     while True:

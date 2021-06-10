@@ -1,9 +1,10 @@
 from src.burrows_wheeler import MARKER, burrows_wheeler_transform, first_column
 from src.tally import fast_rank, generate_tally
-from src.suffix_array import generate_suffix_array, resolve_fm_index_offset, simple_suffix_array
+from src.suffix_array import generate_suffix_array, resolve_fm_index_offset, sais_suffix_array
 
 
 def search_benchmark(pattern, F, L, SA, tally, tally_factor):
+    """ Search algorithm adopted for benchmarking of seraching results """
     match = []
 
     first_column_chars = list(F)
@@ -37,7 +38,7 @@ def search_benchmark(pattern, F, L, SA, tally, tally_factor):
 def search(T: str, pattern: str, sa_factor: int = 1, tally_factor: int = 1):
     T += MARKER
 
-    array = simple_suffix_array(T)
+    array = sais_suffix_array(T)
     L = burrows_wheeler_transform(T, array)
     F = first_column(L)
     SA = generate_suffix_array(T, sa_factor, array)
