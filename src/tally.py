@@ -3,7 +3,7 @@ def generate_tally(L: str, tally_factor: int = 1):
         raise AssertionError("Tally factor bigger than length of L")
     
     chars = sorted(set(L))
-    from src.burrows_wheeler import MARKER
+    from burrows_wheeler import MARKER
     chars.remove(MARKER)
     
     chars_cnt = dict(zip(iter(chars), [0]*len(chars)))

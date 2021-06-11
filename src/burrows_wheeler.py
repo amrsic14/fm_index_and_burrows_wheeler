@@ -1,4 +1,5 @@
-from src.suffix_array import sais_suffix_array
+import os
+from suffix_array import sais_suffix_array
 
 
 MARKER = '$'
@@ -12,7 +13,10 @@ def burrows_wheeler_transform(T: str, array = None) -> str:
     :return: BWT
     """
     if array is None:
-        array = sais_suffix_array(T)
+        with open('tmp_file.txt', 'w') as file:
+            file.write(T)
+        array = sais_suffix_array('tmp_file.txt')
+        os.remove('tmp_file.txt')
 
     bwt = []
     

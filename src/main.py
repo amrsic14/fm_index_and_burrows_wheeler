@@ -1,28 +1,12 @@
-import sys, os, time
-from datetime import datetime
-from src.tally import generate_tally
-from src.suffix_array import generate_suffix_array, sais_suffix_array
-from src.burrows_wheeler import MARKER, burrows_wheeler_transform, first_column
-from src.search import search_benchmark
-from Bio import SeqIO
+import argparse, sys, os, time
+from search import search
+from tally import generate_tally
+from suffix_array import generate_suffix_array, sais_suffix_array
+from burrows_wheeler import MARKER, burrows_wheeler_transform, first_column
+from search import load_file, prepare_file, search_benchmark
 
 
-def load_file(file_path: str):
-    fasta_sequences = SeqIO.parse(open(file_path),'fasta')
-    sequence = ""
-    for fasta in fasta_sequences:
-        sequence += str(fasta.seq)
-    return sequence
-
-
-def prepare_file(data: str):
-    temp_file = 'genom_with_marker.txt'
-    with open(temp_file, 'w') as file:
-        file.write(data)
-    return temp_file
-
-
-def main():
+def benchmark():
     datasets = [
         {
             'file' : '7962_ref_common_carp_genome_chr10.fa',
@@ -42,12 +26,13 @@ def main():
     tally_factors = [1, 8, 32, 128, 512]
 
     for dataset in datasets:
-        T_string = load_file(f"data/{dataset['file']}")
+        print(f'Working with: {dataset["file"]}')
+
+        T_string = load_file(f"../data/{dataset['file']}")
         T_string += MARKER
         T_file = prepare_file(T_string)
-        print(f'Working with: {dataset["file"]}')
         
-        out_file = open(f'data/{dataset["file"].rpartition(".")[0]}_benchmark.txt', 'w')
+        out_file = open(f'../data/{dataset["file"].rpartition(".")[0]}_benchmark.txt', 'w')
         out_file.write(f'\n\n\n******************** {dataset["file"].rpartition(".")[0]} ********************\n\n\n')
 
         bwt_start_time = time.time()
@@ -91,4 +76,27 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    
+    parser = argparse.ArgumentParser(description="Searching for pattern in fasta file")
+
+    parser.add_argument("-f", "--file", dest="file", 
+                        required='-b' not in sys.argv and '--do_benchmark' not in sys.argv, 
+                        help="Path to fasta file")
+    parser.add_argument("-p", "--pattern", dest="pattern", 
+                        required='-b' not in sys.argv and '--do_benchmark' not in sys.argv, 
+                        help="Pattern to serach in fasta file")
+    parser.add_argument("-sf", "--sa_factor", dest="sa_factor", type=int, default=1, help="Suffix array factor")
+    parser.add_argument("-tf", "--tally_factor", dest="tally_factor", type=int, default=1, help="Tally matrix factor")
+    parser.add_argument("-b", "--do_benchmark", dest="do_benchmark", action='store_true', help="Do benchmark")
+
+    args = parser.parse_args()
+
+    if args.do_benchmark:
+        benchmark()
+    else:
+        matches = search(args.file, args.pattern, args.sa_factor, args.tally_factor)
+        if len(matches) > 0:
+            print(f"Found matches for pattern {args.pattern} in file {args.file}:")
+            print(matches)
+        else:
+            print(f"Matches for pattern {args.pattern} in file {args.file} not founded.")

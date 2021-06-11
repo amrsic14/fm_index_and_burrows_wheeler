@@ -1,6 +1,22 @@
-from src.burrows_wheeler import MARKER, burrows_wheeler_transform, first_column
-from src.tally import fast_rank, generate_tally
-from src.suffix_array import generate_suffix_array, resolve_fm_index_offset, sais_suffix_array
+from Bio import SeqIO
+from burrows_wheeler import MARKER, burrows_wheeler_transform, first_column
+from tally import fast_rank, generate_tally
+from suffix_array import generate_suffix_array, resolve_fm_index_offset, sais_suffix_array
+
+
+def load_file(file_path: str):
+    fasta_sequences = SeqIO.parse(open(file_path),'fasta')
+    sequence = ""
+    for fasta in fasta_sequences:
+        sequence += str(fasta.seq)
+    return sequence
+
+
+def prepare_file(data: str):
+    temp_file = 'genom_with_marker.txt'
+    with open(temp_file, 'w') as file:
+        file.write(data)
+    return temp_file
 
 
 def search_benchmark(pattern, F, L, SA, tally, tally_factor):
@@ -35,13 +51,15 @@ def search_benchmark(pattern, F, L, SA, tally, tally_factor):
     return sorted(match)
 
 
-def search(T: str, pattern: str, sa_factor: int = 1, tally_factor: int = 1):
+def search(file: str, pattern: str, sa_factor: int = 1, tally_factor: int = 1):
+    T = load_file(file)
     T += MARKER
+    T_file = prepare_file(T)
+    suffix_array = sais_suffix_array(T_file)
 
-    array = sais_suffix_array(T)
-    L = burrows_wheeler_transform(T, array)
+    L = burrows_wheeler_transform(T, suffix_array)
     F = first_column(L)
-    SA = generate_suffix_array(T, sa_factor, array)
+    SA = generate_suffix_array(T, sa_factor, suffix_array)
     tally = generate_tally(L, tally_factor)
 
     match = []

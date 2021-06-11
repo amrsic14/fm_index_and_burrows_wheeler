@@ -1,5 +1,5 @@
-import subprocess, os, time
-from src.tally import fast_rank
+import subprocess, os
+from tally import fast_rank
 
 
 def sais_suffix_array(file: str):
@@ -8,7 +8,7 @@ def sais_suffix_array(file: str):
     :param file: path to file
     """
     temp_out_file = 'sa_output.txt'
-    subprocess.call([f'{os.path.dirname(__file__)}\\sais\\sais.exe', file, temp_out_file])
+    subprocess.call([f'{os.path.dirname(__file__)}\\sais\\sais.exe', file, temp_out_file], stderr=subprocess.DEVNULL)
     with open(temp_out_file, 'r') as file:
         data = file.read()
     os.remove(temp_out_file)
@@ -16,7 +16,7 @@ def sais_suffix_array(file: str):
     return array
 
 
-def generate_suffix_array(file: str, sa_factor: int = 1, array = None):    
+def generate_suffix_array(T: str, sa_factor: int = 1, array = None):    
     """
     Generate suffix array with sa factor, function can use pre-calculated suffix array 
     to reduce execution time and space consumption
@@ -25,7 +25,10 @@ def generate_suffix_array(file: str, sa_factor: int = 1, array = None):
     :param array: pre-calculated suffix array
     """
     if array is None:
-        array = sais_suffix_array(file)
+        with open('tmp_file.txt', 'w') as file:
+            file.write(T)
+        array = sais_suffix_array('tmp_file.txt')
+        os.remove('tmp_file.txt')
 
     suffix_array = {}
 
