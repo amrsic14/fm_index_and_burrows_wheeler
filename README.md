@@ -27,13 +27,18 @@ Example commands:
 ```python main.py -b```\
 ```python main.py -f ../data/fasta_file.fa -p ACTGAC ```\
 ```python main.py -f ../data/fasta_file.fa -p ACTGAC -tf 512```\
-```python main.py -f ../data/fasta_file.fa -p ACTGAC -tf 512 --sa_factor 4```\
+```python main.py -f ../data/fasta_file.fa -p ACTGAC -tf 512 --sa_factor 4```
 
 ## Test
 
 To run unit test, position yourself in the src directory and run the following command: ```python -m unittest discover```
 
 ## Benchmar
+
+In oreder to run benchmark, fasta files from the following linsk needs to be placed in data directory:
+https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Coffea_arabica/CHR_1c/13443_ref_Cara_1.0_chr1c.fa.gz \
+https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Mus_pahari/CHR_X/10093_ref_PAHARI_EIJ_v1.1_chrX.fa.gz \
+https://ftp.ncbi.nlm.nih.gov/genomes/archive/old_refseq/Cyprinus_carpio/CHR_10/7962_ref_common_carp_genome_chr10.fa.gz
 
 Benchmark results are stored in the data directory with the name 'genom_file_name_benchmark.txt'
 
